@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM index.docker.io/library/ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y iputils-ping openssh-client sshpass curl traceroute iproute2 net-tools wget lsb-release gnupg awscli
