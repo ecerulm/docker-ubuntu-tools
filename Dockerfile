@@ -1,4 +1,4 @@
-FROM index.docker.io/library/ubuntu:20.04
+FROM index.docker.io/library/ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y iputils-ping openssh-client sshpass curl traceroute iproute2 net-tools wget lsb-release gnupg awscli
@@ -15,4 +15,15 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get install -y python3-pip
 RUN pip3 install -U pip
 RUN pip install snowflake-connector-python \
+    "redshift_connector[full]" \
     ipython
+
+RUN apt-get install -y \
+    tree \
+    neovim \
+    sudo \
+    docker
+
+RUN apt-get dist-upgrade -y
+
+RUN apt-get install -y jq
